@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Exam Registration Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Register</h2>
+  <form id="signupForm" enctype="multipart/form-data">
+    <input type="text" name="fullName" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="text" name="phone" placeholder="Phone Number" required />
+    <input type="text" name="collegeName" placeholder="College Name" required />
+    <input type="text" name="collegeId" placeholder="College ID" required />
+    
+    <label>Profile Picture:</label>
+    <input type="file" name="profilePic" accept="image/*" required />
+    
+    <label>College ID Card:</label>
+    <input type="file" name="collegeCard" accept="image/*" required />
+    
+    <button type="submit">Register</button>
+    
+    <p id="signupMessage" style="display:none; color: green;">Registered! Check email for password.</p>
+  </form>
+
+  <p style="margin-top: 10px;">
+    Already registered? <a href="login.html">Click here to Login</a>
+  </p>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = document.getElementById("signupForm");
+      const formData = new FormData(form);
+
+      fetch("http://localhost:5000/register", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.message) {
+          document.getElementById("signupMessage").style.display = "block";
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 2000);
+        } else {
+          alert("Registration failed. Try again.");
+        }
+      })
+      .catch(err => {
+        alert("Registration failed. Try again.");
+        console.error(err);
+      });
+    });
+  </script>
+</body>
+</html>

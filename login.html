@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Login</h2>
+  <form id="signinForm">
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+    <p id="signinMessage" style="display:none; color: green;">Logging in...</p>
+  </form>
+
+  <script>
+    document.getElementById("signinForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.querySelector("input[name='email']").value;
+      const password = document.querySelector("input[name='password']").value;
+
+      fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          localStorage.setItem("userName", data.user.fullName);
+          localStorage.setItem("profilePic", data.user.profilePic);
+          localStorage.setItem("userEmail",data.email);
+          document.getElementById("signinMessage").style.display = "block";
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 1000);
+        } else {
+          alert("Invalid credentials. Try again.");
+        }
+      })
+      .catch(err => {
+        alert("Login failed. Try again.");
+        console.error(err);
+      });
+    });
+  </script>
+</body>
+</html>

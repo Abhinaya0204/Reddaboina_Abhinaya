@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GATE Test Interface</title>
+  <link rel="stylesheet" href="test.css" />
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <div class="left-panel">
+    <div id="questionBox"></div>
+    <div id="optionBox"></div>
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Save & Next</button>
+    <button id="reviewBtn">Mark for Review</button>
+    <button id="submitBtn">Submit</button>
+  </div>
+  <div class="right-panel" style="text-align: right;">
+    <div id="timer" style="font-weight: bold; color:red; margin-bottom: 10px;">60:00</div>
+    <h3 style="text-align: left;">Question Palette</h3>
+    <div class="legend" style ="text-align: left;">
+  <div><span class="palette-box not-visited"></span> Not Visited</div>
+  <div><span class="palette-box visited"></span> Visited</div>
+  <div><span class="palette-box answered"></span> Answered</div>
+  <div><span class="palette-box marked-review"></span> Marked for Review</div>
+</div>
+    <div id="palette"></div>
+  </div>
+  <script src="test.js" defer></script>
+</body>
+</html>

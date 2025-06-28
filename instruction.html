@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GATE 2025 - Instructions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .instructions {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      max-height: 400px;
+      overflow-y: scroll;
+      margin-bottom: 20px;
+    }
+    .footer {
+      background-color: #e6e6e6;
+      padding: 20px;
+      text-align: center;
+    }
+    .footer input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .footer button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .footer button:disabled {
+      background-color: #999999;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Graduate Aptitude Test in Engineering (GATE) 2025</h1>
+    <p>Organized by Institution</p>
+  </header>
+
+  <div class="container">
+    <div class="instructions">
+      <h2>Instructions</h2>
+      <ol>
+        <li>The total duration of the examination is 60 minutes.</li>
+        <li>The clock will be set at the server. The countdown timer at the top right corner of the screen will display the remaining time available for you to complete the examination.</li>
+        <li>The question palette on the right side of the screen shows one of the following statuses of each of the questions numbered:
+          <ul>
+            <li>Gray: You have not visited the question yet.</li>
+            <li>Red: You have not answered the question.</li>
+            <li>Green: You have answered the question.</li>
+            <li>Purple: You have NOT answered the question, but have marked the question for review.</li>
+            <li>Purple with a green tick: You have answered the question but marked it for review.</li>
+          </ul>
+        </li>
+        <li>You can click on the question number in the Question Palette at the right of the screen to go to that numbered question directly.</li>
+        <li>Click on "Save & Next" to save your answer for the current question and then go to the next question.</li>
+        <li>Click on "Mark for Review & Next" to mark your question for review, and then go to the next question.</li>
+        <li>To change your answer to a question that has already been answered, first select that question for answering and then follow the procedure for answering that type of question.</li>
+        <li>Click on the "Submit" button to submit the examination.</li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      <input type="checkbox" id="agree" onchange="toggleButton()">
+      <label for="agree">I have read and understood the instructions</label><br><br>
+      <button id="startBtn" onclick="startTest()" disabled>I'm ready to begin</button>
+    </div>
+  </div>
+  <script>
+    function toggleButton() {
+      const checkbox = document.getElementById('agree');
+      const button = document.getElementById('startBtn');
+      button.disabled = !checkbox.checked;
+    }
+    //<button onclick="startTest()">start Test</button>
+    //let testWindow;
+
+    function startTest() {
+      const testWindow=window.open("test.html", "_blank", "width=1200,height=800");
+      //testwindow =window.opem("test.html","testWindow","width=1200,height=800"); 
+      localStorage.setItem("mainWindowShouldShowResults","true");// ✅ Opens test.html in same window
+      window.close();
+    }
+  </script>
+</body>
+</html>

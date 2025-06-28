@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fc;
+  margin: 0;
+  padding: 0;
+}
+
+.instruction-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.header .logo {
+  width: 80px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.header h1 {
+  font-size: 20px;
+  color: #1a1a1a;
+}
+
+.content h2 {
+  font-size: 18px;
+  color: #2e4a66;
+}
+
+.content ol {
+  margin-left: 20px;
+  line-height: 1.7;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button {
+  background-color: #0078d4;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005ea2;
+}

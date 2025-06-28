@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  script src="dashboard.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="#" id="myCoursesLink">My Courses</a><li>
+        <li><a href="#">Results</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top bar -->
+      <header class="top-bar">
+        <div class="profile-section">
+          <img id="userProfile" src="" alt="Profile" style="width: 40px; height: 40px; border-radius: 50%;" />
+          <div class="dropdown">
+            <ul>
+              <li><a href="#">My Profile</a><li>
+              <li><a href="changePassword.html">Change Password</a></li>
+              <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Welcome Section -->
+      <section class="welcome">
+        <h1>Welcome, <span id="userName">User</span>!</h1>
+      </section>
+
+      <!-- Course List Section -->
+      <section id="coursesSection" style="display:none;">
+        <h2>My Courses</h2>
+        <div id="courseList"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js" defer></script>
+</body>
+</html>       
