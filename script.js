@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // script.js
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -111,3 +112,23 @@ function startTest(courseId) {
   localStorage.setItem("selectedCourse", courseId);
   window.location.href = "instruction.html";
 }
+=======
+function showTempMessage(elementId) {
+  const messageBox = document.getElementById(elementId);
+  messageBox.style.display = "block";
+
+  setTimeout(() => {
+    messageBox.style.display = "none";
+  }, 3000);
+}
+
+document.getElementById("signupForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  showTempMessage("signupMessage");
+});
+
+document.getElementById("signinForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  showTempMessage("signinMessage");
+});
+>>>>>>> 6d22b3a71e16f45d9356a2f68ca3af772cfb9074
